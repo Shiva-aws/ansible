@@ -1,0 +1,14 @@
+---
+- name: install git and clone a remote git repo
+  hosts: all
+  tasks:
+   - name: install git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+   - name: clone a remoe github repo
+     git:
+      repo: https://github.com/selenium-saikrishna/maven.git
+      dest: /home/ubuntu/git_repo
+...

@@ -1,0 +1,19 @@
+---
+- name: check if a dir is present and then copy a file intlo it
+  hosts: all
+  tasks:
+   - name: check for a directory
+     stat:
+      path: /home/ubuntu/folder2
+     register: f2results
+   - name: display output of stat module
+     debug:
+      var: f2results
+   - name: copy the passwd file
+     copy:
+      src: /etc/passwd
+      dest: /home/ubuntu/folder2
+     when:
+      f2results.stat.exists==true 
+...
+

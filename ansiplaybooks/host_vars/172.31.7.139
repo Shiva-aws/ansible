@@ -1,0 +1,11 @@
+---
+a: anu
+b: intelliq
+c: /home/ubuntu/anu
+d: 6878
+e: default-jdk
+f: present
+g: absent
+h: yes
+i: no
+...

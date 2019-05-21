@@ -1,0 +1,19 @@
+---
+- name: implementing docker-compose on all managed nodes
+  hosts: all
+  tasks:
+   - name: start my sql as a container 
+     docker_container:
+      image: mysql:5
+      name: mydb
+      env:
+        MYSQL_ROOT_PASSWORD: intelliq
+   - name: start wordpress as a container and link it with mysql
+     docker_container:
+      image: wordpress
+      name: mywordpress
+      ports:
+       - 6060:80
+      links:
+       - "mydb:mysql"
+...

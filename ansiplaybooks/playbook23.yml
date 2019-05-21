@@ -1,0 +1,13 @@
+---
+- name: start ubuntu as a container and open interactive terminal in it 
+  hosts: all
+  tasks:
+   - name: start ubuntu
+     docker_container:
+      image: ubuntu
+      name: u1
+      interactive: yes
+      tty: yes
+      volumes:
+       - /data
+...

@@ -1,0 +1,8 @@
+---
+- name: calling child playbooks from parent playbooks
+  hosts: all
+  tasks:
+   - name: call the child playbooks
+     include:
+      playbook18.yml
+...

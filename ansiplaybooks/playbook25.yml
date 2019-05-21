@@ -1,0 +1,22 @@
+---
+- name: implementing docker compose on all managed nodes
+  hosts: all
+  tasks: 
+   - name: start jenkins as a container
+     docker_container: 
+      image: jenkins
+      name: devserver
+      ports:
+       - 5050:8080
+   - name: start tomcat(QA & Prod server) as a container and link it with jenkins
+     docker_container:
+      image: tomcat
+      name: "{{item.a}}"
+      ports:
+       - "{{item.b}}"
+      links:
+       - "devserver:jenkins"
+     with_items:
+      - {a: qaserver,b: "6560:8080"}
+      - {a: prodserver, b: "9590:8080"}
+...

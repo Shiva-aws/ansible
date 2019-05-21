@@ -1,0 +1,15 @@
+---
+- name: install/uninstall software packages
+  hosts: all
+  tasks:
+   - name: install/uninstall/update
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: tree,b: present,c: no}
+      - {a: default-jdk,b: latest,c: yes}
+      - {a: maven,b: present,c: no}
+...
+

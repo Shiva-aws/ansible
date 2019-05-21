@@ -1,0 +1,10 @@
+---
+- name: install jdk
+  hosts: 172.31.7.139
+  tasks:
+   - name: install java
+     apt:
+      name: "{{e}}"
+      state: "{{f}}"
+      update_cache: "{{i}}"
+...

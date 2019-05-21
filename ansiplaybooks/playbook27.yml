@@ -1,0 +1,14 @@
+---
+- name: login into dockerhub and pull the customized images
+  hosts: all
+  tasks:
+   - name: login into docker hub
+     docker_login:
+      username: shyam136
+      password: 8500226726
+      email: shyamprasad1110136@gmail.com
+   - name: pull the image from dockerhub
+     docker_image:
+      name: shyam136/java-ubuntu
+      pull: yes
+...

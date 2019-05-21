@@ -1,0 +1,14 @@
+---
+- name: login into dockerhub and push the customized images
+  hosts: 172.31.14.40
+  tasks:
+   - name: login into docker hub
+     docker_login:
+      username: shyam136
+      password: 8500226726
+      email: shyamprasad1110136@gmail.com
+   - name: push the image into dockerhub
+     docker_image:
+      name: shyam136/wordpress
+      push: yes
+...

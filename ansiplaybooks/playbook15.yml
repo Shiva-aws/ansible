@@ -1,0 +1,15 @@
+---
+- name: create a user
+  hosts: all
+  tasks:
+   - name: creating user
+     user:
+      name: kiran
+      password: intelliq
+      home: /home/ubuntu/kiran
+      uid: 9456
+     register: results
+   - name: display the output of the above module
+     debug:
+      var: results
+...

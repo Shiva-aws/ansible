@@ -1,0 +1,14 @@
+---
+- name: installing software packages using loops
+  hosts: all
+  tasks:
+   - name: install softwares
+     apt:
+      name: "{{item}}"
+      state: present
+      update-cache: yes
+     with_items:
+      - tree
+      - default-jdk
+      - maven
+...

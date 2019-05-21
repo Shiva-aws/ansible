@@ -1,0 +1,10 @@
+---
+- name: creating a vault playbook for ansible
+  hosts: all
+  tasks:
+   - name: created first ansible playbook
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+...

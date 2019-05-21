@@ -1,0 +1,15 @@
+---
+- name: Installing git and cloning
+  hosts: all
+  tasks:
+   - name: instal git
+      apt:
+       name: git
+       state: present
+       update_cache: yes
+
+   - name: cloning
+      git:
+              repo: https://github.com/selenium-saikrishna/maven.git
+              dest: /home/ubuntu/git
+...
